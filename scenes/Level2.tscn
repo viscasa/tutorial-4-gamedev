@@ -1,0 +1,148 @@
+[gd_scene format=4 uid="uid://doctu3eq76373"]
+
+[ext_resource type="PackedScene" uid="uid://bc2fujtl13g10" path="res://scenes/Player.tscn" id="1_player"]
+[ext_resource type="Texture2D" uid="uid://1cmkdw30hlrq" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_snow.png" id="2_snow"]
+[ext_resource type="Texture2D" uid="uid://cela4hnu06pql" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_stone.png" id="3_stone"]
+[ext_resource type="PackedScene" uid="uid://1bfdvgjqq7aa" path="res://scenes/ChangeSceneArea.tscn" id="4_change"]
+[ext_resource type="Script" uid="uid://bm4rfm2jkrx0n" path="res://scenes/spawner.gd" id="5_spawner"]
+[ext_resource type="PackedScene" uid="uid://ha3bnek3sjs3" path="res://scenes/falling_saw.tscn" id="6_saw"]
+[ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="7_rocket"]
+[ext_resource type="Script" uid="uid://biicxn7sumo37" path="res://scenes/level_base.gd" id="8_lvlbase"]
+[ext_resource type="PackedScene" path="res://scenes/moving_platform.tscn" id="9_movplat"]
+[ext_resource type="Texture2D" uid="uid://cvuv75kt8mvxt" path="res://assets/kenney_platformerpack/PNG/Backgrounds/blue_desert.png" id="10_v8268"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stone"]
+texture = ExtResource("3_stone")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_snow"]
+texture = ExtResource("2_snow")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -33.6743, 39.5307)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, 64, 33.6743, 39.5307)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, -64, -64, -64, -20.497406, 64, 64)
+6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, -20.497406, -64, 64)
+7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 8.784592, 64, 7.3204956, 64, -64)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 8.784592, 64, 7.3204956, 64, -64)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 8.784592, 64, 7.3204956, 64, -64)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 8.784592, 64, 7.3204956, 64, -64)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -64, 64, 64, 64)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(64, -64, 64, 64, -64, 64)
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+7:1/0 = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+8:1/0 = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+
+[sub_resource type="TileSet" id="TileSet_level2"]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 3
+sources/1 = SubResource("TileSetAtlasSource_stone")
+sources/2 = SubResource("TileSetAtlasSource_snow")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_win"]
+size = Vector2(278, 480)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pit"]
+size = Vector2(4214, 192)
+
+[node name="Level2" type="Node2D" unique_id=410525412]
+script = ExtResource("8_lvlbase")
+level_name = "Level2"
+
+[node name="Player" parent="." unique_id=1175246875 instance=ExtResource("1_player")]
+position = Vector2(-2778, -202)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2067419187]
+tile_map_data = PackedByteArray("AADo////AgAGAAEAAADp////AgAHAAEAAADq////AgAHAAEAAADr////AgAIAAEAAADy//z/AgAHAAEAAADz//z/AgAHAAEAAAD0//z/AgAHAAEAAAD1//z/AgAHAAEAAAD2//z/AgAEAAEAAAD3//3/AgAEAAEAAAD4//7/AgAEAAEAAAADAP//AgAGAAEAAAAEAP//AgAHAAEAAAAFAP//AgAHAAEAAAAGAP//AgAHAAEAAAAHAP//AgAIAAEAAAD+//7/AgAAAAAAAADy//3/AgABAAAAAADz//3/AgABAAAAAAD0//3/AgABAAAAAAD1//3/AgABAAAAAAD2//3/AgAHAAAAAAD2//7/AgABAAAAAAD3//7/AgAHAAAAAAD1//7/AgABAAAAAAD0//7/AgABAAAAAADz//7/AgABAAAAAADy//7/AgABAAAAAADy////AgABAAAAAADz////AgABAAAAAAD0////AgABAAAAAAD1////AgABAAAAAAD2////AgABAAAAAAD3////AgABAAAAAAD4////AgAHAAAAAADo//7/AgACAAAAAADo//3/AgACAAAAAADo//z/AgACAAAAAAA=")
+tile_set = SubResource("TileSet_level2")
+
+[node name="Goal" type="Sprite2D" parent="." unique_id=2038034591]
+position = Vector2(859, -368)
+texture = ExtResource("7_rocket")
+
+[node name="WinArea" parent="Goal" unique_id=1423574785 instance=ExtResource("4_change")]
+sceneName = "WinScreen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal/WinArea" unique_id=1844072102]
+shape = SubResource("RectangleShape2D_win")
+
+[node name="DeathPit" parent="." unique_id=393268303 instance=ExtResource("4_change")]
+position = Vector2(-1025, 83)
+sceneName = "LoseScreen"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPit" unique_id=1830674400]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_pit")
+
+[node name="Spawner" type="Node2D" parent="." unique_id=2082215242]
+position = Vector2(-955, -1040)
+script = ExtResource("5_spawner")
+obstacle = ExtResource("6_saw")
+range = 2500
+
+[node name="RigidBody2D" type="RigidBody2D" parent="." unique_id=560828243]
+
+[node name="MovingPlatform" parent="." unique_id=1790438748 instance=ExtResource("9_movplat")]
+position = Vector2(-2463, -96)
+move_distance = Vector2(400, 0)
+duration = 1.0
+
+[node name="MovingPlatform3" parent="." unique_id=35923747 instance=ExtResource("9_movplat")]
+position = Vector2(-772, -172)
+move_distance = Vector2(1000, 0)
+
+[node name="MovingPlatform2" parent="." unique_id=879025959 instance=ExtResource("9_movplat")]
+position = Vector2(-1899, -95)
+move_distance = Vector2(0, -400)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367151442]
+layer = -1
+
+[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer" unique_id=1932494851]
+modulate = Color(1, 0.85490197, 0.48235294, 1)
+position = Vector2(576.5, 302.5)
+scale = Vector2(1.1337891, 1.1337891)
+texture = ExtResource("10_v8268")
+
+[editable path="Goal/WinArea"]
+[editable path="DeathPit"]

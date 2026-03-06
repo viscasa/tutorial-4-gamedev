@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc2fujtl13g10"]
+[gd_scene format=3 uid="uid://bc2fujtl13g10"]
 
-[ext_resource type="Script" path="res://scenes/player.gd" id="1_xsgpf"]
+[ext_resource type="Script" uid="uid://noqi87ei7686" path="res://scenes/player.gd" id="1_xsgpf"]
 [ext_resource type="Texture2D" uid="uid://dhsqj8dybb7fq" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_alien.png" id="2"]
 
-[sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(52.924, 76.884)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v6fml"]
+radius = 27.0
+height = 74.0
 
 [sub_resource type="Animation" id="2"]
 resource_name = "Idle"
@@ -56,25 +57,41 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sbh6e"]
 _data = {
-"Idle": SubResource("2"),
-"Jump": SubResource("3"),
-"Walk": SubResource("4")
+&"Idle": SubResource("2"),
+&"Jump": SubResource("3"),
+&"Walk": SubResource("4")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3li8b"]
+radius = 19.0
+height = 50.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1521625916]
 script = ExtResource("1_xsgpf")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("1")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1720253827]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_v6fml")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=523786922]
 position = Vector2(0, -25)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2")
 hframes = 4
-frame = 2
+frame = 3
 
-[node name="Animator" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_sbh6e")
-}
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=340881473]
+libraries/ = SubResource("AnimationLibrary_sbh6e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2076894118]
+
+[node name="HitBox" type="Area2D" parent="." unique_id=1513674250]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=2056384246]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_3li8b")
+debug_color = Color(0.9477927, 4.5242905e-06, 0.5837393, 0.41960785)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

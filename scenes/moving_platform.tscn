@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bl1r5ketakh0p"]
+
+[ext_resource type="Script" path="res://scenes/moving_platform.gd" id="1_movplat"]
+[ext_resource type="Texture2D" uid="uid://1cmkdw30hlrq" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_snow.png" id="2_snowplat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_movplat"]
+size = Vector2(128, 64)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+collision_layer = 1
+script = ExtResource("1_movplat")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_snowplat")
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_movplat")

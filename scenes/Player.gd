@@ -34,3 +34,9 @@ func _process(_delta):
 			$Sprite2D.flip_h = false
 		else:
 			$Sprite2D.flip_h = true
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	await RenderingServer.frame_post_draw
+	if body is FallingFish or body is FallingSaw:
+		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
