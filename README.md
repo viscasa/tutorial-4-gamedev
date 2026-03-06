@@ -1,26 +1,15 @@
-# Tutorial 4 — Game Development
-
-## Level 2: Snow Stage
-
-### Deskripsi
-
-Level 2 adalah stage bertema **salju (snow)** yang lebih sulit dibandingkan Level 1. Perbedaan utama:
-
-| Aspek | Level 1 | Level 2 |
-|-------|---------|---------|
-| **Tileset** | Grass + Dirt | **Snow + Stone** |
-| **Rintangan jatuh** | Ikan biru (FallingFish) | **Gergaji berputar (FallingSaw)** |
-| **Tema** | Padang rumput | **Pegunungan salju** |
+<div align="center">
+    <h2>Alwie Attar Elfandra</h2>
+    <h2>2306241726</h2>
+</div>
 
 ### Fitur Level 2
 
-1. **Tileset berbeda** — Menggunakan `spritesheet_gr_snow.png` dan `spritesheet_gr_stone.png` sebagai tile map, memberikan nuansa lingkungan salju/pegunungan yang berbeda dari level pertama.
+1. **Tileset berbeda** — Menggunakan `spritesheet_gr_snow.png` dan `spritesheet_gr_stone.png` sebagai tile map, memberikan nuansa lingkungan salju yang berbeda dari level pertama.
 
 2. **Rintangan baru: Falling Saw** — Objek gergaji (saw blade) yang berjatuhan secara periodik dari spawner di atas map. Saw blade ini **berputar saat jatuh** (polishing) dan akan hilang ketika mengenai tanah.
 
-3. **Jurang (Pit)** — Area kosong di bawah map yang berfungsi sebagai death zone. Jika pemain jatuh ke jurang, maka akan langsung ke LoseScreen.
-
-4. **Spawner periodik** — Spawner yang secara terus-menerus menghasilkan objek `FallingSaw` dari posisi acak di atas map.
+3. **Moving Platform** — Platform yang bergerak secara periodik dari posisi awal ke posisi akhir.
 
 ### Proses Implementasi
 
@@ -33,6 +22,7 @@ Level 2 adalah stage bertema **salju (snow)** yang lebih sulit dibandingkan Leve
 
 #### 2. Membuat Level 2 Scene (`Level2.tscn`)
 - Menggunakan `TileSet` baru dengan sumber atlas dari `spritesheet_gr_snow.png` (sebagai permukaan atas/snow) dan `spritesheet_gr_stone.png` (sebagai dekorasi bawah tanah).
+- Menambahkan `MovingPlatform` ke dalam level.
 - Layout platform dirancang untuk memaksa pemain melakukan lompatan-lompatan presisi.
 - Menambahkan `ChangeSceneArea` di bagian bawah map sebagai death pit yang mengarahkan ke `LoseScreen`.
 - Menambahkan area kemenangan (Goal) dengan `ChangeSceneArea` yang mengarahkan ke `WinScreen`.
@@ -44,16 +34,3 @@ Level 2 adalah stage bertema **salju (snow)** yang lebih sulit dibandingkan Leve
   if body is FallingFish or body is FallingSaw:
       get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
   ```
-
-### Polishing (Nilai 4)
-
-- **Rotasi saw blade** — Gergaji berputar saat jatuh, memberikan visual yang lebih menarik dan berbahaya.
-- **Layout yang menantang** — Platform yang membutuhkan lompatan presisi dan timing yang tepat untuk menghindari saw blade.
-- **Tileset tematik** — Penggunaan tileset salju yang memberikan suasana berbeda dari level pertama.
-
-### Referensi
-
-- [Kenney Platformer Pack](https://kenney.nl/assets/platformer-pack-redux) — Asset pack yang digunakan untuk sprite tiles, enemies, dan items.
-- [Godot Engine Documentation - TileMap](https://docs.godotengine.org/en/stable/classes/class_tilemap.html) — Referensi untuk penggunaan TileMap di Godot.
-- [Godot Engine Documentation - RigidBody2D](https://docs.godotengine.org/en/stable/classes/class_rigidbody2d.html) — Referensi untuk contact monitoring pada RigidBody2D.
-- [Godot Engine Documentation - class_name](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#registering-named-classes) — Referensi untuk penggunaan `class_name` dan keyword `is` di GDScript.
