@@ -1,9 +1,14 @@
 extends CharacterBody2D
 
+signal life_changed(new_life: int)
+
 @export var speed: int = 400
 @export var gravity: int = 1200
 @export var jump_speed: int = -400
+var life_count: int = 3
 
+func _ready() -> void:
+	life_changed.emit(life_count)
 
 func get_input():
 	velocity.x = 0
@@ -37,6 +42,12 @@ func _process(_delta):
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
+	var is_hazard = body is FallingFish or body is FallingSaw
 	await RenderingServer.frame_post_draw
-	if body is FallingFish or body is FallingSaw:
-		get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
+	if is_hazard:
+		if life_count == 1:
+			life_count = 3
+			get_tree().change_scene_to_file("res://scenes/LoseScreen.tscn")
+		else :
+			life_count -= 1
+			life_changed.emit(life_count)

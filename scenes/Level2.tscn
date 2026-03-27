@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ha3bnek3sjs3" path="res://scenes/falling_saw.tscn" id="6_saw"]
 [ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="7_rocket"]
 [ext_resource type="Script" uid="uid://biicxn7sumo37" path="res://scenes/level_base.gd" id="8_lvlbase"]
-[ext_resource type="PackedScene" path="res://scenes/moving_platform.tscn" id="9_movplat"]
+[ext_resource type="PackedScene" uid="uid://bl1r5ketakh0p" path="res://scenes/moving_platform.tscn" id="9_movplat"]
 [ext_resource type="Texture2D" uid="uid://cvuv75kt8mvxt" path="res://assets/kenney_platformerpack/PNG/Backgrounds/blue_desert.png" id="10_v8268"]
+[ext_resource type="PackedScene" uid="uid://qt2eeo8scneg" path="res://scenes/life_counter.tscn" id="11_rcugv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_stone"]
 texture = ExtResource("3_stone")
@@ -135,14 +136,20 @@ move_distance = Vector2(1000, 0)
 position = Vector2(-1899, -95)
 move_distance = Vector2(0, -400)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=367151442]
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=367151442]
 layer = -1
 
-[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer" unique_id=1932494851]
+[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer3" unique_id=1932494851]
 modulate = Color(1, 0.85490197, 0.48235294, 1)
+z_index = -1
 position = Vector2(576.5, 302.5)
 scale = Vector2(1.1337891, 1.1337891)
 texture = ExtResource("10_v8268")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1493630133]
+layer = 0
+
+[node name="LifeCounter" parent="CanvasLayer" unique_id=752145444 instance=ExtResource("11_rcugv")]
 
 [editable path="Goal/WinArea"]
 [editable path="DeathPit"]

@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dvm6w1dnrftse"]
+
+[ext_resource type="Script" uid="uid://bd8typ6mhk6yh" path="res://scenes/main_menu.gd" id="1_wu84c"]
+[ext_resource type="FontFile" uid="uid://b7hrvhku1ih8a" path="res://assets/font/Perfect DOS VGA 437 Win.ttf" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://c77q7xa825ok" path="res://assets/kenney_platformerpack/PNG/Backgrounds/blue_shroom.png" id="4_oa1go"]
+
+[node name="MarginContainer" type="MarginContainer" unique_id=662496603]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wu84c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1274968663]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=124507554]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1476355042]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 48
+text = "Game Tutor Gamedev!"
+
+[node name="First List" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1527617811]
+layout_mode = 2
+
+[node name="NewGame" type="LinkButton" parent="HBoxContainer/VBoxContainer/First List" unique_id=1012008356]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 32
+text = "New Game"
+
+[node name="SelectStage" type="LinkButton" parent="HBoxContainer/VBoxContainer/First List" unique_id=218093595]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 32
+text = "Select Stage"
+
+[node name="Second List" type="VBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=1266169055]
+visible = false
+layout_mode = 2
+
+[node name="Level1" type="LinkButton" parent="HBoxContainer/VBoxContainer/Second List" unique_id=1450088990]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 32
+text = "Level 1"
+
+[node name="Level2" type="LinkButton" parent="HBoxContainer/VBoxContainer/Second List" unique_id=807500097]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.9490196, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_8ln24")
+theme_override_font_sizes/font_size = 32
+text = "Level 2"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer" unique_id=1348018446]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/CenterContainer" unique_id=655147979]
+layout_mode = 2
+texture = ExtResource("3_rtw2f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1800163862]
+layer = -1
+
+[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer" unique_id=1295954355]
+position = Vector2(576.5, 302.5)
+scale = Vector2(1.1337891, 1.1337891)
+texture = ExtResource("4_oa1go")
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/First List/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/First List/SelectStage" to="." method="_on_select_stage_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Second List/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/Second List/Level2" to="." method="_on_level_2_pressed"]

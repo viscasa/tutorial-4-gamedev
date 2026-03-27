@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://vndehr6ncxge" path="res://scenes/falling_fish.tscn" id="7_svatc"]
 [ext_resource type="Script" uid="uid://biicxn7sumo37" path="res://scenes/level_base.gd" id="8_lvlbase"]
 [ext_resource type="Texture2D" uid="uid://c77q7xa825ok" path="res://assets/kenney_platformerpack/PNG/Backgrounds/blue_shroom.png" id="9_n34uq"]
+[ext_resource type="PackedScene" uid="uid://qt2eeo8scneg" path="res://scenes/life_counter.tscn" id="10_kbo48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrl65"]
 texture = ExtResource("2_odhdn")
@@ -117,14 +118,19 @@ position = Vector2(0, -581)
 script = ExtResource("6_76388")
 obstacle = ExtResource("7_svatc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=293864520]
+[node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=293864520]
 layer = -1
 
-[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer" unique_id=2099977393]
+[node name="BlueDesert" type="Sprite2D" parent="CanvasLayer3" unique_id=2099977393]
 modulate = Color(1, 0.6745098, 0.22745098, 1)
 position = Vector2(576.5, 302.5)
 scale = Vector2(1.1337891, 1.1337891)
 texture = ExtResource("9_n34uq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=444792860]
+layer = 0
+
+[node name="LifeCounter" parent="CanvasLayer" unique_id=752145444 instance=ExtResource("10_kbo48")]
 
 [editable path="Rektorat/Area2D"]
 [editable path="Area2D2"]

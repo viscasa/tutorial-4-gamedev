@@ -2,11 +2,42 @@
 
 [ext_resource type="Texture2D" uid="uid://bi5p7hlw4wlhv" path="res://assets/dead.jpg" id="1"]
 [ext_resource type="Script" uid="uid://td7n4ei7mmc1" path="res://scenes/lose_screen.gd" id="1_x3j6d"]
+[ext_resource type="FontFile" uid="uid://b7hrvhku1ih8a" path="res://assets/font/Perfect DOS VGA 437 Win.ttf" id="2_aeugc"]
 
 [node name="LoseScreen" type="Node2D" unique_id=561538025]
 script = ExtResource("1_x3j6d")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=760174834]
+layer = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1474599840]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Control" unique_id=1639773262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 140.0
+offset_right = 52.0
+offset_bottom = 171.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_aeugc")
+theme_override_font_sizes/font_size = 64
+text = "MAIN MENU"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1810548870]
 position = Vector2(572, 320)
 scale = Vector2(0.9014286, 0.76)
 texture = ExtResource("1")
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="." method="_on_button_pressed"]

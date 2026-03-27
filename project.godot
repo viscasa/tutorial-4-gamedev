@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Tutorial 4 Template"
-run/main_scene="res://scenes/Level1.tscn"
+run/main_scene="uid://dvm6w1dnrftse"
 config/features=PackedStringArray("4.6")
 config/icon="res://icon.png"
 
@@ -59,4 +59,5 @@ jump={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 environment/default_environment="res://default_env.tres"

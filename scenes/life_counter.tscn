@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://qt2eeo8scneg"]
+
+[ext_resource type="FontFile" uid="uid://b7hrvhku1ih8a" path="res://assets/font/Perfect DOS VGA 437 Win.ttf" id="1_ywwlr"]
+
+[node name="LifeCounter" type="MarginContainer" unique_id=752145444]
+z_index = 5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=261540972]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=796679144]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ywwlr")
+theme_override_font_sizes/font_size = 32
+text = "Live : "
