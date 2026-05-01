@@ -3,10 +3,9 @@
     <h2>2306241726</h2>
 </div>
 
-<div align="center">
+<div align="center">    
     <h1>Tutorial 4</h1>
 </div>
-
 ### Fitur Level 2
 
 1. **Tileset berbeda** — Menggunakan `spritesheet_gr_snow.png` dan `spritesheet_gr_stone.png` sebagai tile map, memberikan nuansa lingkungan salju yang berbeda dari level pertama.
@@ -58,4 +57,20 @@
    - Memastikan semua Level (misal `Level1.tscn` dan `Level2.tscn`) terhubung dengan sebuah *base script*.
    - Mengambil referensi dari node `Player` dan mengakses UI Label pada `CanvasLayer`.
    - Secara dinamis (via kode *script*) menghubungkan *signal* `life_changed` dari `Player` milik *level* tersebut ke fungsi khusus `update_life_counter`.
-   - Hal ini memastikan sisa nyawa otomatis ter-*update* (menjadi string "Live : X") pada layar UI setiap kali *signal* berkurangnya nyawa terpanggil, menghindari perubahan secara manual dan berulang pada setiap Level.
+   - Hal ini memastikan sisa nyawa otomatis ter-*update* (menjadi string "Live : X") pada layar UI setiap kali *signal* berkurangnya nyawa terpanggil, menghindari perubahan secara manual dan berulang pada setiap Level.
+
+<div align="center">    
+    <h1>Tutorial 8</h1>
+</div>
+
+### Latihan 2: Menambahkan Partikel Lari
+
+Dengan acceleration, movement terasa lebih licin karena player ga langsung tiba-tiba bergerak dan ga langsung tiba-tiba berhenti. Particle juga menambah polish karena game sekarang makin terlihat tidak sepi karena kurangnya impact.
+
+### Balancing Spawn Rate
+
+Saya set spawn_rate pada spawner musuh ke 2.5 detik. Nilai ini masih menekan pemain untuk bergerak cepat, tapi tetap memberi celah untuk lompatan dan tidak terasa unfair seperti 0.3 detik. Kalau dibuat 5 detik, level jadi terlalu mudah, jadi 2.5 detik menurut saya paling pas untuk menjaga flow.
+
+### Balancing tambahan
+
+Saya nambahin speed character agar geraknya menjadi lebih cepat dan acceleration & deceleration lebih terasa

@@ -5,10 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://76hi8rt1miuo" path="res://assets/kenney_platformerpack/Spritesheets/spritesheet_gr_grass.png" id="3_dw26h"]
 [ext_resource type="Texture2D" uid="uid://chgqimvh7rdh6" path="res://assets/Familiar Looking Rocket.png" id="4_lrl65"]
 [ext_resource type="PackedScene" uid="uid://1bfdvgjqq7aa" path="res://scenes/ChangeSceneArea.tscn" id="5_76388"]
-[ext_resource type="Script" uid="uid://bm4rfm2jkrx0n" path="res://scenes/spawner.gd" id="6_76388"]
-[ext_resource type="PackedScene" uid="uid://vndehr6ncxge" path="res://scenes/falling_fish.tscn" id="7_svatc"]
 [ext_resource type="Script" uid="uid://biicxn7sumo37" path="res://scenes/level_base.gd" id="8_lvlbase"]
 [ext_resource type="Texture2D" uid="uid://c77q7xa825ok" path="res://assets/kenney_platformerpack/PNG/Backgrounds/blue_shroom.png" id="9_n34uq"]
+[ext_resource type="PackedScene" uid="uid://cbrrsfnbg3p0g" path="res://scenes/Spawner.tscn" id="10_4dyl1"]
 [ext_resource type="PackedScene" uid="uid://qt2eeo8scneg" path="res://scenes/life_counter.tscn" id="10_kbo48"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lrl65"]
@@ -113,11 +112,6 @@ sceneName = "LoseScreen"
 position = Vector2(3, 0)
 shape = SubResource("RectangleShape2D_76388")
 
-[node name="Spawner" type="Node2D" parent="." unique_id=205360727]
-position = Vector2(0, -581)
-script = ExtResource("6_76388")
-obstacle = ExtResource("7_svatc")
-
 [node name="CanvasLayer3" type="CanvasLayer" parent="." unique_id=293864520]
 layer = -1
 
@@ -131,6 +125,9 @@ texture = ExtResource("9_n34uq")
 layer = 0
 
 [node name="LifeCounter" parent="CanvasLayer" unique_id=752145444 instance=ExtResource("10_kbo48")]
+
+[node name="Spawner2" parent="." unique_id=717080661 instance=ExtResource("10_4dyl1")]
+position = Vector2(193, 188)
 
 [editable path="Rektorat/Area2D"]
 [editable path="Area2D2"]

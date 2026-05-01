@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbj425a8bldtb"]
+
+[ext_resource type="Script" uid="uid://csv1jynpgcpvg" path="res://scenes/Enemy.gd" id="1_mpr68"]
+[ext_resource type="Texture2D" uid="uid://d3sjm662mv7dm" path="res://assets/kenney_platformerpack/PNG/Enemies/mouse.png" id="2"]
+[ext_resource type="PackedScene" uid="uid://cenr5u61runto" path="res://scenes/AreaTrigger.tscn" id="3_5vx5k"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(52.924, 31.4302)
+
+[node name="Enemy" type="CharacterBody2D" unique_id=403496170]
+script = ExtResource("1_mpr68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=652726172]
+shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=597001000]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+vframes = 2
+frame = 1
+
+[node name="Area3D Trigger2" parent="." unique_id=787971944 instance=ExtResource("3_5vx5k")]
+scale = Vector2(0.172685, 0.0830508)
